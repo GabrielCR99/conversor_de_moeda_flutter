@@ -8,7 +8,14 @@ const request = "https://api.hgbrasil.com/finance?key=91f097e0";
 void main() async {
   runApp(MaterialApp(
     home: Home(),
-    theme: ThemeData(hintColor: Colors.amber, primaryColor: Colors.white),
+    theme: ThemeData(
+        hintColor: Colors.amber,
+        primaryColor: Colors.white,
+        inputDecorationTheme: InputDecorationTheme(
+            enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+          color: Colors.white,
+        )))),
   ));
 }
 
@@ -70,6 +77,14 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.refresh,
+            ),
+            onPressed: _clearAll,
+          )
+        ],
         title: Text('\$Conversor\$'),
         backgroundColor: Colors.amber,
         centerTitle: true,
@@ -106,16 +121,23 @@ class _HomeState extends State<Home> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: <Widget>[
                         Icon(
-                          Icons.monetization_on,
+                          Icons.attach_money,
                           size: 150,
                           color: Colors.amber,
                         ),
+                        Padding(
+                          padding: EdgeInsets.only(bottom: 20.0),
+                        ),
                         buildTextField(
                             'Reais', 'R\$', realController, _realChanged),
-                        Divider(),
+                        Divider(
+                          height: 30.0,
+                        ),
                         buildTextField(
-                            'Dólar', 'US\$', usdController, _usdChanged),
-                        Divider(),
+                            'Dólares', 'US\$', usdController, _usdChanged),
+                        Divider(
+                          height: 30.0,
+                        ),
                         buildTextField(
                             'Euros', 'EUR', eurController, _eurChanged),
                       ],
