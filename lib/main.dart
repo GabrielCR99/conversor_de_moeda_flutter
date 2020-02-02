@@ -129,17 +129,17 @@ class _HomeState extends State<Home> {
                           padding: EdgeInsets.only(bottom: 20.0),
                         ),
                         buildTextField(
-                            'Reais', 'R\$', realController, _realChanged),
+                            'Reais', 'R\$ ', realController, _realChanged),
                         Divider(
                           height: 30.0,
                         ),
                         buildTextField(
-                            'Dólares', 'US\$', usdController, _usdChanged),
+                            'Dólares', 'US\$ ', usdController, _usdChanged),
                         Divider(
                           height: 30.0,
                         ),
                         buildTextField(
-                            'Euros', 'EUR', eurController, _eurChanged),
+                            'Euros', 'EUR ', eurController, _eurChanged),
                       ],
                     ),
                   );
